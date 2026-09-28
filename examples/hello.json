@@ -1,0 +1,10 @@
+{
+  "name": "hello-web",
+  "image": "nginx:1.27-alpine",
+  "replicas": 2,
+  "resources": { "cpuMillis": 250, "memoryMB": 128, "gpus": 0 },
+  "nodeSelector": {},
+  "federated": false,
+  "restart": "unless-stopped"
+}
+

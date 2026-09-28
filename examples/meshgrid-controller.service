@@ -1,0 +1,22 @@
+[Unit]
+Description=MeshGrid controller
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=meshgrid
+Group=meshgrid
+EnvironmentFile=/etc/meshgrid/controller.env
+ExecStart=/usr/local/bin/meshgrid controller --listen 127.0.0.1:7443 --data /var/lib/meshgrid
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/meshgrid
+
+[Install]
+WantedBy=multi-user.target
+
